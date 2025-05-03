@@ -28,14 +28,14 @@
 	</head>
 	<body>
 		<div class="container">
-		<h1>CS184/284A Spring 2025 Final Project Proposal</h1>
+		<h1>CS184/284A Spring 2025 Final Project Write-Up</h1>
 		<figure>
 			<img src="proposal_images/title.png" alt="title" style="width:70%"/>
 		</figure>
 		<div style="text-align: center;">Names: Isabella Alpert, Joel Castro, Jordan Duan & Robert Nochez</div>
-		<div style="text-align: center;">Proposal Webpage: <a href="https://jordan-duan.github.io/184-final/proposal.html">https://jordan-duan.github.io/184-final/final-deliverable.html</a></div>
+		<div style="text-align: center;">Final Project Write-Up Webpage: <a href="https://jordan-duan.github.io/184-final/final-deliverable.html">https://jordan-duan.github.io/184-final/final-deliverable.html</a></div>
 		<div style="text-align: center;">Slides: <a href="https://docs.google.com/presentation/d/1LGZGMx-Mz_L71ofXkpk-BMonL71gfiy98YgM6XWvmuM/edit?usp=sharing">https://docs.google.com/presentation/</a></div>
-		<div style="text-align: center;">Video: <a href="https://drive.google.com/drive/u/1/folders/1Up112GSXvwSqm5fI-xoc130VJNsFmqdX">https://drive.google.com/video/</a></div>
+		<div style="text-align: center;">Video: <a href="https://drive.google.com/drive/u/1/folders/1Up112GSXvwSqm5fI-xoc130VJNsFmqdX">https://drive.google.com/drive/video</a></div>
 
 
 		<h2>Abstract</h2>
@@ -77,42 +77,44 @@
 		</p>
 
 		<p>
-			<b>Collisions with Blocks:</b> We use a method, handleBlockBounce, to determine when a sphere collides with a block, if 
-			the collision should result in a bounce, how strong the bounce should be, and whether to play particle effects and a 
-			bounce sound effect. This begins by first getting the sphere's current velocity and initializing a boolean flag 
-			hadSignificantBounce to false, which will be used to track whether the bounce is strong enough to cue visual and 
-			audio feedback. The method then checks if the sphere has experienced a horizontal collision by calculating the 
-			bounceVelocity in the x and z direction by multiplying the preMoveVelocity with a bounce_elasticity. We also calculate 
-			the same with vertical collisions, only using the y direction and following the same procedure. If the bounceVelocity is 
-			more than our threshold defined by the Min_collision_velocity, the sphere is said to have bounce,d so we set 
-			hadSignificantBounce to true, and it will cue particle effects as well as a sound effect to provide feedback that the 
-			sphere has bounced. 
+			<b>Collisions with Blocks:</b> We use a method, handleBlockBounce, to determine when a sphere collides with a block, 
+			if the collision should result in a bounce, how strong the bounce should be, and whether to play particle effects and 
+			a bounce sound effect. This begins by first getting the sphere's current velocity and initializing a boolean flag 
+			hadSignificantBounce to false, which will be used to track whether the bounce is strong enough to cue visual and audio 
+			feedback. The method then checks if the sphere has experienced a horizontal collision by calculating the bounceVelocity 
+			in the x and z direction by multiplying the preMoveVelocity with a bounce_elasticity. We also calculate the same with 
+			vertical collisions, only using the y direction and following the same procedure. If the bounceVelocity is more than our 
+			threshold defined by the Min_collision_velocity, the sphere is said to have bounced, so we set hadSignificantBounce to true, 
+			and it will cue particle effects as well as a sound effect to provide feedback that the sphere has bounced. 
+
+
 		</p>
 
 		<p>
-			<b>Collision with Players:</b> To allow for players to interact with spheres and kick them, we implemented a method 
-			pushAwayFrom to handle collisions caused by the player. When the sphere detects contact with another entity, it first 
-			checks if that entity is a PlayerEntity. If so, it calculated a direction vector kickDir pointing from the player to 
-			the sphere by subtracting the player's position from the sphere's and normalizing the result. To actually create a 
-			force between the sphere and player, we created an arbitrary constant Player_kick_force and multiplied it against 
-			the direction of the kick and added it to the sphere's current velocity to create a new velocity vector. Similar to 
-			the collision with blocks, we then finally check to see if the newly made velocity caused by the player exceeds 
-			min_collision_velocity and cause the particle effects and sound effect to play if it does. 
+			<b>Collision with Players:</b> To allow players to interact with spheres and kick them, we implemented a method, 
+			pushAwayFrom, to handle collisions caused by the player. When the sphere detects contact with another entity, it first 
+			checks if that entity is a PlayerEntity. If so, it calculated a direction vector kickDir pointing from the player to the sphere 
+			by subtracting the player's position from the sphere's and normalizing the result. To create a force between the sphere and 
+			player, we created an arbitrary constant Player_kick_force and multiplied it against the direction of the kick, and added it 
+			to the sphere's current velocity to create a new velocity vector. Similar to the collision with blocks, we then finally check 
+			to see if the newly made velocity caused by the player exceeds min_collision_velocity and causes the particle effects and sound 
+			effect to play if it does. 
+
 		</p>
 
 		<p>
-			<b>Collision with Other Spheres:</b> To make our spheres a bit more interesting and allow for elastic collisions 
-			between two or more spheres, we used the resolveSphereCollision method. To first ensure that the spheres are indeed 
-			touching, we calculate a vector, between, that is calculated from the centers of the two spheres. This allows us to 
-			calculate when the spheres are touching without having to find a point of contact, which would require more resources 
-			and may even lag the system when more than two spheres are colliding. From this distance, we use a minDist, which is 
-			found by getting the radius of the two spheres and adding them together. If the spheres are touching, we compute the 
-			direction vector to identify how the spheres should be pushed apart and also calculate a correction value to resolve 
-			the intersection symmetrically (i.e., both spheres are affected by the elastic collision equally). We then calculate 
-			the relative velocity between the spheres based on their initial velocities and subtract them from each other, and 
-			calculate the impulse using an Elasticity constant set for each sphere entity. The final step is to then update each 
-			sphere's velocity based on this impulse and cause them to bounce off each other realistically, simulating an elastic 
-			collision. 
+			<b>Collision with Other Spheres:</b> To make our spheres a bit more interesting and allow for elastic collisions between 
+			two or more spheres, we used the resolveSphereCollision method. To first ensure that the spheres are indeed touching, we 
+			calculate a vector, between, that is calculated from the centers of the two spheres. This allows us to calculate when the 
+			spheres are touching without having to find a point of contact, which would require more resources and may even lag the system 
+			when more than two spheres are colliding. From this distance, we use a minDist, which is found by getting the radius of the 
+			two spheres and adding them together. If the spheres are touching, we compute the direction vector to identify how the spheres 
+			should be pushed apart and also calculate a correction value to resolve the intersection symmetrically (i.e., both spheres are 
+			affected by the elastic collision equally). We then calculate the relative velocity between the spheres based on their initial 
+			velocities and subtract them from each other, and calculate the impulse using an Elasticity constant set for each sphere entity. 
+			The final step is to then update each sphere's velocity based on this impulse and cause them to bounce off each other realistically, 
+			simulating an elastic collision. 
+
 		</p>
 
 		<p>
