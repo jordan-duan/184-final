@@ -5,7 +5,7 @@
 **Authors:** Isabella Alpert, Joel Castro, Jordan Duan & Robert Nochez  
 **Project Webpage:** [Final Project Write-Up Webpage](https://jordan-duan.github.io/184-final/final-deliverable.html)  
 **Slides:** [Google Slides](https://docs.google.com/presentation/d/1LGZGMx-Mz_L71ofXkpk-BMonL71gfiy98YgM6XWvmuM/edit?usp=sharing)  
-**Video:** [Project Video](https://drive.google.com/drive/u/1/folders/1Up112GSXvwSqm5fI-xoc130VJNsFmqdX)
+**Video:** [Project Video](https://youtu.be/OcBq2-588C8)
 
 ---
 
@@ -188,4 +188,4 @@ Next, we wanted to highlight each shader. Different shaders perform better or wo
 
 ---
 
-> For more details, see the [full project write-up](https://jordan-duan.github.io/184-final/final-deliverable.html) or the [video presentation](https://drive.google.com/drive/u/1/folders/1Up112GSXvwSqm5fI-xoc130VJNsFmqdX).
+> For more details, see the [full project write-up](https://jordan-duan.github.io/184-final/final-deliverable.html) or the [video presentation](https://youtu.be/OcBq2-588C8).
