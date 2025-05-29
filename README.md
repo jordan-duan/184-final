@@ -184,6 +184,7 @@ Next, we wanted to highlight each shader. Different shaders perform better or wo
 ## CurseForge Download Page(s)
 
 [Main CurseForge Page](<https://www.curseforge.com/minecraft/mc-mods/spheres-physics>)
+
 [Shaders CurseForge Page](<https://www.curseforge.com/minecraft/shaders/spheres-physics-shaders>)
 
 ---
