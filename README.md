@@ -6,6 +6,7 @@
 **Project Webpage:** [Final Project Write-Up Webpage](https://jordan-duan.github.io/184-final/final-deliverable.html)  
 **Slides:** [Google Slides](https://docs.google.com/presentation/d/1LGZGMx-Mz_L71ofXkpk-BMonL71gfiy98YgM6XWvmuM/edit?usp=sharing)  
 **Video:** [Project Video](https://youtu.be/OcBq2-588C8)
+**Curseforge Mod:** [Spheres & Physics](https://www.curseforge.com/minecraft/mc-mods/spheres-physics)
 
 ---
 
